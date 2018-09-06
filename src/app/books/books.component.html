@@ -1,0 +1,38 @@
+<h2>Books</h2>
+<table border="1">
+		<thead>
+			<tr>			
+				<th>Title</th>
+				<th>Price</th>
+				<th>Pages</th>
+				<th>Publisher</th>
+        <th>Authors</th>
+        <th>ID</th>	
+        <th></th>	
+        <th></th>	
+			</tr>
+		</thead>
+<tbody class="books">
+  <tr *ngFor="let book of books">
+    <td><input [(ngModel)]="book.title" placeholder="title"/></td>
+    <td><input [(ngModel)]="book.price" placeholder="price"/></td>
+    <td><input [(ngModel)]="book.nbpage" placeholder="nbpage"/></td>
+    <td><app-publisher-search></app-publisher-search></td>
+    <td ><span *ngFor="let author of book.authors">{{author.name}}, </span></td>
+    <td>{{book.id}}</td> 
+    <td><button class="update" title="update book" (click)="update(book)">Update</button></td>
+    <td><button class="delete" title="delete book" (click)="delete(book)">Delete</button></td>
+  </tr>
+  <tr>
+    <td> <input #bookTitle /></td>
+    <td> <input #bookPrice /></td>
+    <td> <input #bookNbPages /></td>
+    <td> <input #bookPublisher /></td>
+    <td> <input #bookAuthors /></td>
+    <td></td>
+    <td> <button (click)="add(bookTitle.value, bookPrice.value, bookNbPages.value)">
+        Add
+      </button></td>
+  </tr>
+</tbody>
+</table>

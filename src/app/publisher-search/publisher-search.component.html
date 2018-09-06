@@ -1,0 +1,10 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Publisher name" aria-label="Publisher name" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let publisher of publishers$  | async" [value]="publisher">
+          {{publisher.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
